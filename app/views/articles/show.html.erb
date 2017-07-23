@@ -1,0 +1,28 @@
+<!-- <h1>Article: </h1> -->
+
+<h2 class="center font-raleway show-article-title"><strong>Title : </strong><%= @article.title %></h2>
+    
+
+<div class="well col-xs-8 col-xs-offset-2">
+    <% if @article.user %>
+        <div class="center">
+        <ul><p class="font-weight-500 font-roboto col-light-black-2">Created by: </p>
+            <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %><br/>
+            <span class="username-title font-raleway"><%= link_to @article.user.username, user_path(@article.user) %></span><br/>
+            <span class="user-articles-count font-roboto font-weight-400 col-light-black-3"><%= pluralize(@article.user.articles.count, "article")%></span>
+            </li>
+        </ul>
+        </div>
+    <%end%>
+
+    <p class="font-roboto"> <strong>Description : </strong> <div class="well col-light-black-3 font-raleway font-weight-500"><%= simple_format(@article.description) %></div></p>
+
+
+    <div style="margin: 30px 0 10px 0;">
+        <%= link_to 'back to articles', articles_path, class: "btn btn-xs btn-primary font-raleway font-weight-500" %>
+        <% if logged_in? && current_user == @article.user %>
+            <%= link_to 'edit this article', edit_article_path(@article), class: "btn btn-xs btn-info font-raleway font-weight-500"%>
+        <%end%>
+    </div>
+</div>
+

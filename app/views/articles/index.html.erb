@@ -1,0 +1,25 @@
+<h1 class="center">Listing all Articles: </h1>
+
+
+<style>
+    table,td{
+        border:  1px solid #555;
+        border-collapse:  collapse;
+    }
+    table thead tr{
+        background: #afafaf;
+        
+    }
+</style>
+    
+
+
+
+<% if @articles.length > 0 %>
+    <div class="container">
+        <div class="center"><%= will_paginate %></div>
+        <%=  render "article", obj: @articles %>
+    </div>
+<%else%>
+    <p>There is no Article..! would you like to <%= link_to 'create new article', new_article_path %></p>
+<%end%>
