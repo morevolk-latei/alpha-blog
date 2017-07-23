@@ -20,7 +20,7 @@
 
     <div style="margin: 30px 0 10px 0;">
         <%= link_to 'back to articles', articles_path, class: "btn btn-xs btn-primary font-raleway font-weight-500" %>
-        <% if logged_in? && current_user == @article.user %>
+        <% if logged_in? && (current_user == @article.user || current_user.admin? ) %>
             <%= link_to 'edit this article', edit_article_path(@article), class: "btn btn-xs btn-info font-raleway font-weight-500"%>
         <%end%>
     </div>
