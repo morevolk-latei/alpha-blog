@@ -7,6 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails-controller-testing'
 gem 'rails', '~> 5.1.2'
 gem 'jquery-rails'
 # gem 'jquery-ui-rails'

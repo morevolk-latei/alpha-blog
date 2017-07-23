@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
   # post 'users', to: 'users#create'
   resources 'users', except: [:new]
+
+
+  resources :categories, except: [:destroy]
 end
