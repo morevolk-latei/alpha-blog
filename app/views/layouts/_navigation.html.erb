@@ -31,6 +31,31 @@
           </li>
         <%end%>
       </ul>
+
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+            <ul class="dropdown-menu category-dropdown">
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'All categories', categories_path %></li>
+              <li role="separator" class="divider"></li>
+              <div class="category-limit-view">
+                <% Category.all.each do |category| %>
+                  <li><%= link_to "#{category.name}", category_path(category) %></li>
+                <%end%>
+              </div>
+              <li role="separator" class="divider"></li>
+              <% if logged_in? and current_user.admin? %>
+                <li><%= link_to "create new category",  new_category_path %></li>
+                <li role="separator" class="divider"></li>
+              <%end%>
+
+            </ul>
+          </li>
+        <%end%>
+      </ul>
+
       <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">

@@ -27,7 +27,7 @@ body{
 }
 
 
-.custom-navbar ul > li a{
+.custom-navbar ul > li > a{
     color: #ffffff !important;
     font-family: 'Roboto' !important;
     font-weight:500 !important;
@@ -158,6 +158,19 @@ body{
     .col-light-black-1{
         color: #101010;
     }
+
+
+
+.category-limit-view{
+    height: 250px;
+    overflow-y: auto;
+}
+.category-limit-view > li{
+    padding: 3px 20px;
+}
+.category-limit-view > li:hover{
+    background-color: #efefef !important;
+}
 
 
 @import "bootstrap-sprockets";
