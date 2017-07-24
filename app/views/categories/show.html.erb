@@ -1,4 +1,10 @@
-<h1 class="center"><%= "Category: "+ @category.name %> </h1>
+<h1 class="center"><%= "Category: "+ @category.name %> 
+    <% if logged_in? and current_user.admin? %>
+        <span class="edit-category-link">
+            <sup><%= link_to "edit", edit_category_path(@category) %></sup>
+        </span>
+    <%end%>
+</h1>
 
 
 
