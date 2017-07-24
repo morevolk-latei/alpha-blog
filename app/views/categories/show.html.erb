@@ -1,1 +1,18 @@
-show.html.erb
+<h1 class="center"><%= "Category: "+ @category.name %> </h1>
+
+
+
+
+<% if @category_articles.length > 0 %>
+    <div class="container">
+        <div class="center"><%= will_paginate @category_articles %></div>
+        <%=  render "articles/article", obj: @category_articles %>
+        <div class="center"><%= will_paginate @category_articles %></div>
+    </div>
+<%else%>
+    <div class="row">
+        <div class="well well-lg">
+            <p>There is no Article..! would you like to <%= link_to 'create new article', new_article_path %></p>
+        </div>
+    </div>
+<%end%>

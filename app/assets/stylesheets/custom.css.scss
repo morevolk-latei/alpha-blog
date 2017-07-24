@@ -172,7 +172,33 @@ body{
     background-color: #efefef !important;
 }
 
+.badge{
+    background-color: #cef6f5 !important;
+    letter-spacing: -0.8px;
+    margin-right:5px;
+}
+
+.select-category-box{
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input_checkbox{
+    text-transform: capitalize;
+    position: relative !important;
+    line-height: 14px;
+
+}
+
+.input_checkbox input{
+    width: auto !important;
+    vertical-align: top !important;
+    position: absolute;
+    top: 0;
+
+}
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-

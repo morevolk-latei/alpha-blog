@@ -9,6 +9,7 @@
                         <div class="article-body font-roboto font-weight-800">
                             <div class="category-box">
                                 <li><%= link_to category.name.capitalize , category_path(category) %></li>
+                                <li><small><%= pluralize(category.articles.count, "article") %></small></li>
                             </div>          
                         </div>
                     </div>

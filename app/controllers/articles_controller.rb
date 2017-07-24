@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
 
     # create action handeled by new method i.e on every new form submission
     def create
+        
         # render plain: params[:article].inspect
         @article = Article.new(article_params)
         @article.user = current_user
@@ -62,7 +63,7 @@ class ArticlesController < ApplicationController
 
     # this article_params method whitelist the title and description and returns to create method
         def article_params
-            params.require(:article).permit(:title, :description)
+            params.require(:article).permit(:title, :description, category_ids: [])
         end
 
         def require_same_user
