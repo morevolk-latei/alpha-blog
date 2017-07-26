@@ -31828,3 +31828,143 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 1521ms (Views: 1501.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-07-25 21:01:09 +0530
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 1363ms (Views: 1350.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-25 21:01:17 +0530
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (14.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (16.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (126.7ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 258ms (Views: 161.8ms | ActiveRecord: 32.9ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2017-07-25 21:01:23 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."user_id" = ? LIMIT ? OFFSET ?[0m  [["user_id", 6], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mCategory Exists (11.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 16], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 16]]
+  Rendered collection of categories/_category.html.erb [1 times] (0.9ms)
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 17], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 18], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 19], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 20], ["LIMIT", 1]]
+  Rendered articles/_article.html.erb (102.5ms)
+  Rendered users/show.html.erb within layouts/application (226.6ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 326ms (Views: 273.6ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/users/6?page=2" for 127.0.0.1 at 2017-07-25 21:01:31 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"page"=>"2", "id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."user_id" = ? LIMIT ? OFFSET ?[0m  [["user_id", 6], ["LIMIT", 5], ["OFFSET", 5]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 21], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 23], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 23]]
+  Rendered collection of categories/_category.html.erb [1 times] (0.8ms)
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 24], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 24]]
+  Rendered collection of categories/_category.html.erb [2 times] (0.3ms)
+  Rendered articles/_article.html.erb (33.5ms)
+  Rendered users/show.html.erb within layouts/application (42.3ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 112ms (Views: 102.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-07-25 21:01:47 +0530
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 11], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 11]]
+  Rendered collection of categories/_category.html.erb [1 times] (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 16], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 16]]
+  Rendered collection of categories/_category.html.erb [1 times] (0.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 17], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 18], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 19], ["LIMIT", 1]]
+  Rendered articles/_article.html.erb (30.6ms)
+  Rendered articles/index.html.erb within layouts/application (35.3ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 120ms (Views: 93.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/articles?page=2" for 127.0.0.1 at 2017-07-25 21:01:50 +0530
+Processing by ArticlesController#index as HTML
+  Parameters: {"page"=>"2"}
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 5]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 20], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 21], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 23], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 23]]
+  Rendered collection of categories/_category.html.erb [1 times] (1.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 24], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 24]]
+  Rendered collection of categories/_category.html.erb [2 times] (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 25], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 25]]
+  Rendered collection of categories/_category.html.erb [5 times] (0.6ms)
+  Rendered articles/_article.html.erb (50.7ms)
+  Rendered articles/index.html.erb within layouts/application (57.6ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 119ms (Views: 112.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-26 01:40:45 +0530
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (4.5ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 998ms (Views: 946.6ms | ActiveRecord: 0.0ms)
+
+
