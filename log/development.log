@@ -31968,3 +31968,54 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 998ms (Views: 946.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-07-27 16:12:34 +0530
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 4005ms (Views: 3992.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-27 16:12:45 +0530
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (13.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (108.2ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 200ms (Views: 141.3ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-27 16:12:49 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."user_id" = ? LIMIT ? OFFSET ?[0m  [["user_id", 10], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mCategory Exists (22.1ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 11], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 11]]
+  Rendered collection of categories/_category.html.erb [1 times] (0.7ms)
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 25], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 25]]
+  Rendered collection of categories/_category.html.erb [5 times] (0.7ms)
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ? LIMIT ?[0m  [["article_id", 26], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "article_categories" ON "categories"."id" = "article_categories"."category_id" WHERE "article_categories"."article_id" = ?[0m  [["article_id", 26]]
+  Rendered collection of categories/_category.html.erb [1 times] (0.2ms)
+  Rendered articles/_article.html.erb (200.6ms)
+  Rendered users/show.html.erb within layouts/application (292.2ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 405ms (Views: 324.1ms | ActiveRecord: 26.3ms)
+
+
